@@ -99,7 +99,7 @@
 
 						<div class="chat flex-grow-1">
 							<div v-for="(item, index) in contacts[active_contact].messages" class="d-flex message-row w-100" :class="(contacts[active_contact].messages[index].status == 'sent') ? 'sent' : 'received' ">
-								<div class="message p-2 m-2 rounded">
+								<div class="message p-2 my-2 mx-4 rounded">
 									<div>{{ item.message }}</div>
 								</div>
 							</div>
