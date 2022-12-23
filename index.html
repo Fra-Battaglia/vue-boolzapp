@@ -65,7 +65,7 @@
 									<img :src="`./img/avatar${item.avatar}.jpg`" :alt="`${item.name}`" class="rounded-circle">
 									<div class="ms-3">
 										<div>{{ item.name }}</div>
-										<div class="text-grey text-small">Ultimo messaggio inviato</div>
+										<div class="text-grey text-small">{{ item.messages[item.messages.length - 1].message }}</div>
 									</div>
 								</div>
 
@@ -82,10 +82,10 @@
 
 						<header class="px-3 py-2 d-flex justify-content-between align-items-center">
 							<div class="profile d-flex align-items-center">
-								<img :src="`./img/avatar${contacts[0].avatar}.jpg`" alt="" class="rounded-circle">
+								<img :src="`./img/avatar${contacts[active_contact].avatar}.jpg`" alt="" class="rounded-circle">
 								<div class="mx-3">
-									<div class="name">{{ contacts[0].name }}</div>
-									<div class="last-seen text-small text-grey">Ultimo accesso: {{ contacts[0].messages[0].date }}</div>
+									<div class="name">{{ contacts[active_contact].name }}</div>
+									<div class="last-seen text-small text-grey">Ultimo accesso: {{ contacts[active_contact].messages[0].date }}</div>
 								</div>
 							</div>
 							<div class="icons text-grey">
@@ -98,7 +98,7 @@
 						<!-- Chat -->
 
 						<div class="chat flex-grow-1">
-							<div v-for="(item, index) in contacts[active_contact].messages" class="d-flex message-row w-100">
+							<div v-for="(item, index) in contacts[active_contact].messages" class="d-flex message-row w-100" :class="(contacts[active_contact].messages[index].status == 'sent') ? 'sent' : 'received' ">
 								<div class="message p-2 m-2 rounded">
 									<div>{{ item.message }}</div>
 								</div>
