@@ -69,6 +69,10 @@ header {
 	background-repeat: repeat;
 }
 
+.active-contact {
+	background-color: #E9EBEB;
+}
+
 .typing-area {
 	/* backdrop-filter: blur(20px); */
 	background-color:  #F2EEEA;

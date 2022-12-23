@@ -221,5 +221,11 @@ createApp({
             	}
         	]
 		}
+	},
+
+	methods: {
+		change_chat(contact_index) {
+			this.active_contact = contact_index;
+		}
 	}
 }).mount('#app')
