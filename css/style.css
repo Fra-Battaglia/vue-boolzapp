@@ -3,3 +3,83 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+
+/* Helpers */
+
+.outline {
+	outline: 1px solid #E9EBEB;
+}
+
+.bg-light-blue {
+	background-color: #8EDAFC;
+}
+
+.text-light-blue {
+	color: #8EDAFC;
+}
+
+.text-grey {
+	color: #B1B1B1;
+}
+
+.text-small {
+	font-size: 0.8em;
+}
+
+#app {
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient(180deg, rgba(0,150,136,1) 0%, rgba(0,150,136,1) 20%, rgba(220,219,209,1) 20%, rgba(210,219,220,1) 100%);
+}
+
+/* main {
+	width: 1000px;
+} */
+
+.notifications {
+	background-color: #8EDAFC;
+}
+
+header {
+	background-color: #EAEAEA;
+}
+
+.profile img, .contacts img {
+	width: 50px;
+	height: 50px;
+}
+
+.bell {
+	width: 50px;
+	height: 50px;
+	flex-shrink: 0;
+}
+
+.icons i {
+	margin-left: 10px;
+}
+
+.contacts {
+	overflow: auto;
+	height: 400px;
+}
+
+.contact-chat {
+	background-image: url("../img/mine.jpg");
+	background-repeat: repeat;
+}
+
+.typing-area {
+	/* backdrop-filter: blur(20px); */
+	background-color:  #F2EEEA;
+}
+
+.typing-area button {
+	color: #6C7376;
+}
+
+/* Messages */
+
+.message {
+	background-color: aquamarine;
+}
