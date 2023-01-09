@@ -6,6 +6,14 @@
 
 /* Helpers */
 
+.h-75 {
+	height: 75%;
+}
+
+.h-25 {
+	height: 25%;
+}
+
 .outline {
 	outline: 1px solid #E9EBEB;
 }
@@ -32,21 +40,21 @@
 	background: linear-gradient(180deg, rgba(0,150,136,1) 0%, rgba(0,150,136,1) 20%, rgba(220,219,209,1) 20%, rgba(210,219,220,1) 100%);
 }
 
-/* main {
-	width: 1000px;
-} */
+/* Main */
 
-.notifications {
-	background-color: #8EDAFC;
+main {
+	/* width: 1000px; */
+	height: 90vh;
 }
+
+/* Header */
 
 header {
 	background-color: #EAEAEA;
 }
 
-.profile img, .contacts img {
-	width: 50px;
-	height: 50px;
+.notifications {
+	background-color: #8EDAFC;
 }
 
 .bell {
@@ -55,13 +63,26 @@ header {
 	flex-shrink: 0;
 }
 
+/* Profile */
+
+.profile img, .contacts img {
+	width: 50px;
+	height: 50px;
+}
+
 .icons i {
 	margin-left: 10px;
 }
 
+/* Contacts */
+
+.chat-selection {
+	height: calc(90vh - 66px);
+}
+
 .contacts {
 	overflow: auto;
-	height: 400px;
+	height: 100%;
 }
 
 .contact-chat {

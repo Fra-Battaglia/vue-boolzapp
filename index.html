@@ -19,7 +19,7 @@
 
 					<!-- Profile -->
 
-					<div class="col-4 px-0 chat-selection">
+					<div class="col-4 px-0">
 
 						<!-- Header -->
 
@@ -35,43 +35,52 @@
 							</div>
 						</header>
 
-						<!-- Notifications -->
+						<div class="chat-selection">
+							<div class="h-25 d-flex flex-column">
 
-						<div class="notifications bg-light-blue d-flex p-3">
-							<div class="bell bg-white text-light-blue rounded-circle d-flex justify-content-center align-items-center me-3 fs-4">
-								<i class="fa-solid fa-bell-slash"></i>
-							</div>
-							<div>
-								<div>Ricevi le notifiche di nuovi messaggi</div>
-								<a href="#" class="text-grey text-small">Attiva le notifiche desktop</a>
-							</div>
-						</div>
-
-						<!-- Searchbar -->
-
-						<div class="searchbar d-flex bg-light p-3 outline">
-							<button class="btn text-grey p-1 rounded-0" type="submit">
-								<i class="fa-solid fa-magnifying-glass p-1"></i>
-							</button>
-							<input class="p-1 rounded-0 form-control" type="search" placeholder="Search" aria-label="Search">		
-						</div>
-
-						<!-- Contacts -->
-
-						<div class="contacts">
-							<div class="contact d-flex align-items-center justify-content-between p-3 outline" v-for="(item, index) in contacts" @click="change_chat(index)" :class="(active_contact === index) ? 'active-contact' : 'bg-light' ">
-
-								<div class="contact-name d-flex justify-content-between">
-									<img :src="`./img/avatar${item.avatar}.jpg`" :alt="`${item.name}`" class="rounded-circle">
-									<div class="ms-3">
-										<div>{{ item.name }}</div>
-										<div class="text-grey text-small">{{ item.messages[item.messages.length - 1].message }}</div>
+								<!-- Notifications -->
+		
+								<div class="notifications bg-light-blue d-flex p-3 flex-grow-1">
+									<div class="bell bg-white text-light-blue rounded-circle d-flex justify-content-center align-items-center me-3 fs-4">
+										<i class="fa-solid fa-bell-slash"></i>
+									</div>
+									<div>
+										<div>Ricevi le notifiche di nuovi messaggi</div>
+										<a href="#" class="text-grey text-small">Attiva le notifiche desktop</a>
 									</div>
 								</div>
+		
+								<!-- Searchbar -->
+		
+								<div class="searchbar d-flex bg-light p-3 outline">
+									<button class="btn text-grey p-1 rounded-0" type="submit">
+										<i class="fa-solid fa-magnifying-glass p-1"></i>
+									</button>
+									<input class="p-1 rounded-0 form-control" type="search" placeholder="Search" aria-label="Search">		
+								</div>
+							</div>
+							
+							<div class="h-75">
 
-								<div class="time text-small text-grey align-self-start">12:00</div>
+								<!-- Contacts -->
+		
+								<div class="contacts">
+									<div class="contact d-flex align-items-center justify-content-between p-3 outline" v-for="(item, index) in contacts" @click="change_chat(index)" :class="(active_contact === index) ? 'active-contact' : 'bg-light' ">
+		
+										<div class="contact-name d-flex justify-content-between">
+											<img :src="`./img/avatar${item.avatar}.jpg`" :alt="`${item.name}`" class="rounded-circle">
+											<div class="ms-3">
+												<div>{{ item.name }}</div>
+												<div class="text-grey text-small">{{ item.messages[item.messages.length - 1].message }}</div>
+											</div>
+										</div>
+												
+										<div class="time text-small text-grey align-self-start">12:00</div>
+									</div>
+								</div>
 							</div>
 						</div>
+
 					</div>
 
 					<!-- Contact Chat -->
@@ -106,9 +115,9 @@
 						</div>
 
 						<footer class="typing-area d-flex align-items-center px-3 py-2">
-							<button class="btn p-1 rounded-0 px-4 fs-4"><i class="fa-regular fa-face-smile"></i></button>
-							<input class="form-control" type="text" placeholder="Scrivi un messaggio" aria-label="default input example">
-							<button class="btn p-1 rounded-0 px-4 fs-4"><i class="fa-solid fa-microphone"></i></button>
+							<button class="btn p-0 rounded-0 px-4 fs-4"><i class="fa-regular fa-face-smile"></i></button>
+							<input v-model="new_message_content" @keyup.enter="send_message" class="form-control" type="text" placeholder="Scrivi un messaggio" aria-label="default input example">
+							<button class="btn p-0 rounded-0 px-4 fs-4"><i class="fa-solid fa-microphone"></i></button>
 						</footer>
 					</div>
 				</div>
