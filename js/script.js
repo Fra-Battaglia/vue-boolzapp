@@ -8,6 +8,8 @@ createApp({
 				photo: '_io'
 			},
 			active_contact: 0,
+			new_message_content : '',
+			answer: 'ok',
 
 			contacts: [
                 {
@@ -30,54 +32,6 @@ createApp({
 							message: 'Tutto fatto!',
 							status: 'received'
 						},
-
-						{
-							date: '10/01/2020 15:30:55',
-							message: 'Hai portato a spasso il cane?',
-							status: 'sent'
-						},
-						{
-							date: '10/01/2020 15:50:00',
-							message: 'Ricordati di stendere i panni',
-							status: 'sent'
-						},
-						{
-							date: '10/01/2020 16:15:22',
-							message: 'Tutto fatto!',
-							status: 'received'
-						},
-
-						{
-							date: '10/01/2020 15:30:55',
-							message: 'Hai portato a spasso il cane?',
-							status: 'sent'
-						},
-						{
-							date: '10/01/2020 15:50:00',
-							message: 'Ricordati di stendere i panni',
-							status: 'sent'
-						},
-						{
-							date: '10/01/2020 16:15:22',
-							message: 'Tutto fatto!',
-							status: 'received'
-						},
-
-						{
-							date: '10/01/2020 15:30:55',
-							message: 'Hai portato a spasso il cane?',
-							status: 'sent'
-						},
-						{
-							date: '10/01/2020 15:50:00',
-							message: 'Ricordati di stendere i panni',
-							status: 'sent'
-						},
-						{
-							date: '10/01/2020 16:15:22',
-							message: 'Tutto fatto!',
-							status: 'received'
-						}
 					],
                 },
                 {
@@ -226,6 +180,28 @@ createApp({
 	methods: {
 		change_chat(contact_index) {
 			this.active_contact = contact_index;
+		},
+
+		send_message() {
+			let new_message = {
+				date: 'domani',
+				message: this.new_message_content,
+				status: 'sent',
+			}
+
+			this.contacts[this.active_contact].messages.push(new_message);
+			this.new_message_content = '';
+
+			setTimeout (() => {
+				let answer = {
+					date: 'ieri',
+					message: 'ok',
+					status: 'received',
+				}
+
+				this.contacts[this.active_contact].messages.push(answer);
+			},1000)
+
 		}
 	}
 }).mount('#app')
